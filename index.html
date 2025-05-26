@@ -1,12 +1,22 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="/hktaximeter/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HK Taxi Meter</title>
-    <link rel="preload" href="/fonts/DSEG7Classic-Bold.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="/fonts/DSEG7Classic-Bold.woff" as="font" type="font/woff" crossorigin>
+    <!-- Font loading -->
+    <link rel="preload" href="/hktaximeter/fonts/DSEG7Classic-Bold.woff2" as="font" type="font/woff2" crossorigin>
+    <style>
+      @font-face {
+        font-family: 'DSEG7Classic';
+        src: url('/hktaximeter/fonts/DSEG7Classic-Bold.woff2') format('woff2'),
+             url('/hktaximeter/fonts/DSEG7Classic-Bold.woff') format('woff');
+        font-weight: bold;
+        font-style: normal;
+        font-display: swap;
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>

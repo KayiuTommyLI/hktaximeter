@@ -305,25 +305,23 @@ function App() {
     return (
         <div className="fixed inset-0 bg-black flex items-center justify-center p-2 md:p-4 select-none">
             {/* Main container that rotates */}
-            <div 
+            <div
                 className={`
-                    w-full bg-neutral-800 shadow-2xl rounded-lg 
+                    bg-neutral-800 shadow-2xl rounded-lg
                     p-3 md:p-4 border-2 border-neutral-700 flex flex-col font-sans
                     transition-transform duration-500 ease-in-out
-                    ${isRotated ? 'rotate-90' : 'rotate-0'}
-                    ${isRotated ? 'h-full max-h-full aspect-10/6' : 'max-w-2xl aspect-10/6'}
+                    ${isRotated
+                        ? 'rotate-90 h-[90vmin] aspect-[6/10] w-auto' // For landscape: height based on vmin, width derived by aspect ratio
+                        : 'rotate-0 w-full max-w-md aspect-[10/6]'   // For portrait: width constrained, height derived by aspect ratio
+                    }
                 `}
                 style={{
                     transformOrigin: 'center center',
-                    ...(isRotated && {
-                        width: '100vh', // Use viewport height as width when rotated
-                        height: '60vh', // 60% of viewport height to maintain 10:6 ratio
-                        maxWidth: '100vh',
-                        maxHeight: '60vh'
-                    })
+                    // Removed the conditional style block for isRotated width/height
+                    // Let Tailwind classes manage the sizing.
                 }}
             >
-                
+
                 <div className="flex-grow flex items-stretch justify-around bg-black rounded-md p-1 md:p-2 mb-2 md:mb-3 space-x-1 md:space-x-2">
                     <div className="w-3/5">
                         <FramedDigitalDisplay value={mainFare} mainLabel="FARE" unitLabel="HK$" size="text-6xl sm:text-7xl md:text-8xl" />

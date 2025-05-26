@@ -3,31 +3,27 @@
   "framework": "vite",
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "routes": [
-    { 
-      "src": "/hktaximeter/assets/(.*)", 
-      "dest": "/assets/$1" 
+  "rewrites": [
+    {
+      "source": "/hktaximeter/assets/:path*",
+      "destination": "/assets/:path*"
     },
-    { 
-      "src": "/hktaximeter/fonts/(.*)", 
-      "dest": "/fonts/$1" 
+    {
+      "source": "/hktaximeter/fonts/:path*",
+      "destination": "/fonts/:path*"
     },
-    { 
-      "src": "/hktaximeter/(.*\\.(js|css|map|json|png|jpg|jpeg|gif|svg|ico|ttf|otf|woff|woff2))", 
-      "dest": "/$1" 
+    {
+      "source": "/hktaximeter/:path*",
+      "destination": "/index.html"
     },
-    { 
-      "src": "/hktaximeter/(.*)", 
-      "dest": "/index.html" 
-    },
-    { 
-      "src": "/hktaximeter", 
-      "dest": "/index.html" 
+    {
+      "source": "/hktaximeter",
+      "destination": "/index.html"
     }
   ],
   "headers": [
     {
-      "source": "/hktaximeter/assets/(.*)",
+      "source": "/hktaximeter/assets/:path*",
       "headers": [
         {
           "key": "Cache-Control",
@@ -36,7 +32,7 @@
       ]
     },
     {
-      "source": "/hktaximeter/fonts/(.*)",
+      "source": "/hktaximeter/fonts/:path*",
       "headers": [
         {
           "key": "Cache-Control",
